@@ -1,0 +1,246 @@
+
+body{
+    width:100%;
+    height:100vh;
+    padding:20px;
+    display: flex;
+    overflow-x: hidden;
+    justify-content: center;
+    /*background: linear-gradient(to right, #6a11cb, #2575fc);*/
+    animation: gradientMove 15s infinite;
+    background: linear-gradient(270deg,#101010, #090909);
+    background-size: 600% 600%;
+    color: white;
+    font-family: "Titillium Web", sans-serif;
+    
+}
+@keyframes gradientMove {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
+}
+.searchbar{
+    margin-left: 60px;
+    gap: 10px;
+    display: flex;
+    
+}
+.search{
+    width:700px;
+    height:45px;
+    border-radius: 15px;
+    background-color: transparent;
+    border:3px solid white;
+    font-family: inherit;
+}
+.search:hover{
+    width:700px;
+    height:45px;
+    border-radius: 15px;
+    background-color: transparent;
+    
+    font-family: inherit;
+    background-color: #3b3b3b;
+
+    opacity:0.5;
+}
+.search::placeholder {
+    text-align: center;
+    font-size: large;
+    color: #fffefe;
+}
+.citydetails{
+    width: 700px;
+    height: 300px;
+    border: 2px solid transparent;
+    border-radius: 15px;
+    margin-top: 50px;
+    margin-left: 90px;
+   padding:60px;
+   font-family: inherit;
+   position: relative;
+   display: flex;
+   flex-direction: column;
+   position: relative;
+ 
+    animation: borderAnimation 5s linear infinite;
+}
+
+.citydetails::before {
+    content: '';
+    position: absolute;
+    top: -7px;
+    right: -7px;
+    bottom: -7px;
+    left: -7px;
+    z-index: -1;
+    
+    border: 1px solid;
+    border-image: linear-gradient(360deg, cyan, cyan) 1;
+    animation: borderAnimation 5s linear infinite;
+    border-radius: inherit;
+}
+@keyframes borderAnimation {
+    0% {
+        border-image: linear-gradient(45deg, cyan, rgb(0, 60, 255)) 1;
+       
+    }
+    50% {
+        border-image: linear-gradient(180deg, cyan, rgb(0, 60, 255)) 1;
+     
+    }
+    100% {
+        border-image: linear-gradient(270deg, cyan, rgb(0, 60, 255)) 1;
+        
+    }
+}
+
+
+
+.icon {
+    width: 200px;
+    height: 200px;
+    
+    position: absolute;
+    top: 50%;
+    right: 30px;
+   
+    transform: translate(-40%,-60%);
+}
+.cityname{
+    display: flex;
+    justify-content: center;
+    font-size: x-large;
+    font-family: inherit;
+    font-weight: bold;
+    
+
+}
+.date{
+    display: flex;
+    justify-content: center;
+    font-family: inherit;
+   
+}
+.temp{
+    font-size: x-large;
+    margin-left: 80px;
+    font-family: inherit;
+}
+.wind{
+    font-size: x-large;
+    margin-left: 80px;
+    font-family: inherit;
+}
+.humid{
+    font-size: x-large;
+    margin-left: 80px;
+    font-family: inherit;
+}
+.cardsclass{
+    
+    width: 1000px;
+    height: auto;
+    border: 5px solid white;
+    border-radius: 15px;
+    margin-top: 50px;
+    padding: 15px;
+    font-family: inherit;
+    
+
+}
+.weathercards {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    list-style-type: none;
+    padding: 10px;
+    margin: 0;
+   justify-content: center;
+   margin-top: 50px;
+   font-family: inherit;
+}
+h2{
+    text-align: center;
+    font-family: inherit;
+}
+
+.card {
+    width: 125px;
+    padding: 10px;
+    border: 1px solid transparent;
+    border-radius: 10px;
+    font-size: larger;
+    text-align: center;
+    font-family: inherit;
+    position: relative; 
+
+   
+}
+
+.card::before {
+    content: '';
+    position: absolute;
+    top: -4px;
+    right: -4px; 
+    bottom: -4px; 
+    left: -4px; 
+    z-index: -1;
+    border-radius: inherit;
+    border: 1px solid;
+    border-image: linear-gradient(45deg, cyan, aqua) 1;
+    animation: borderAnimation 5s linear infinite;
+}
+
+.searchbtn{
+    background-image: url('https://img.icons8.com/?size=512&id=p8VkXMjDOpcE&format=png');
+    background-size: cover;
+    width:50px;
+    height:50px;
+    cursor: pointer;
+    background-position: center;
+    text-align: center;
+    background-color:#090909;
+    
+}
+.locationbtn{
+    background-image: url('https://img.icons8.com/?size=512&id=l488CgaD3xgd&format=png');
+    background-size: cover;
+    width:50px;
+    height:50px;
+    cursor: pointer;
+    background-position: center;
+    text-align: center;
+    background-color:#090909;
+    
+}
+.iconbtn{
+    background-image: url('https://img.icons8.com/?size=512&id=Y5ik5bt7M9jj&format=png');
+    background-size: cover;
+    width:50px;
+    height:50px;
+    cursor: pointer;
+    background-position: center;
+    text-align: center;
+    border: transparent;
+    background-color: transparent;
+    
+}
+h3{
+    font-size: medium;
+    font-family: inherit;
+}
+h4{
+    font-family: inherit;
+    text-align: center;
+    text-transform: uppercase;
+}
+.end{
+    color: white;
+    width:1000px;
+    height:30px;
+    font-weight: bold;
+    float: bottom ;
+    text-align: center;
+
+}
