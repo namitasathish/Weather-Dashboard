@@ -5,6 +5,15 @@ const weathercarddiv = document.querySelector(".weathercards");
 const currentweatherdiv = document.querySelector(".citydetails");
 const API_KEY = "9e59a7e755cc867fb9bec2fbb032ebdd";
 
+const apiKey = 'API_KEY';
+const apiUrl = 'https://api.openweathermap.org/data/2.5/weather';
+
+fetch(`${apiUrl}?q=London&appid=${apiKey}`)
+  .then(response => response.json())
+  .then(data => console.log(data))
+  .catch(error => console.error('Error:', error));
+
+
 const createCurrentWeatherCard = (cityname, weatheritem) => {
     return `
         <div class="cityname">${cityname}</div>
