@@ -1,18 +1,9 @@
 const cityinput = document.querySelector(".search");
 const searchbtn = document.querySelector(".searchbtn");
-const locationbtn=document.querySelector(".locationbtn");
+const locationbtn = document.querySelector(".locationbtn");
 const weathercarddiv = document.querySelector(".weathercards");
 const currentweatherdiv = document.querySelector(".citydetails");
 const API_KEY = "9e59a7e755cc867fb9bec2fbb032ebdd";
-
-const apiKey = 'API_KEY';
-const apiUrl = 'https://api.openweathermap.org/data/2.5/weather';
-
-fetch(`${apiUrl}?q=London&appid=${apiKey}`)
-  .then(response => response.json())
-  .then(data => console.log(data))
-  .catch(error => console.error('Error:', error));
-
 
 const createCurrentWeatherCard = (cityname, weatheritem) => {
     return `
@@ -46,12 +37,12 @@ const createForecastCard = (weatheritem) => {
 };
 
 const getweather = (cityname, lat, lon) => {
-    const WEATHER_API_URL = `http://api.openweathermap.org/data/2.5/forecast?lat=${lat}&lon=${lon}&appid=${API_KEY}`;
+    const WEATHER_API_URL = `https://api.openweathermap.org/data/2.5/forecast?lat=${lat}&lon=${lon}&appid=${API_KEY}`;
 
     fetch(WEATHER_API_URL)
         .then(res => res.json())
         .then(data => {
-            // Getting daily forecasts
+       
             const uniqueforecastdays = [];
             const fivedaysforecast = data.list.filter(forecast => {
                 const forecastdate = new Date(forecast.dt_txt).getDate();
@@ -60,15 +51,15 @@ const getweather = (cityname, lat, lon) => {
                 }
             });
 
-            // Clearing previous data
+           
             cityinput.value = "";
             weathercarddiv.innerHTML = "";
             currentweatherdiv.innerHTML = "";
 
-            // Adding current weather
+       
             currentweatherdiv.insertAdjacentHTML("beforeend", createCurrentWeatherCard(cityname, fivedaysforecast[0]));
 
-            // Adding forecast cards
+        
             fivedaysforecast.forEach((weatheritem, index) => {
                 if (index !== 0) {
                     weathercarddiv.insertAdjacentHTML("beforeend", createForecastCard(weatheritem));
@@ -81,12 +72,12 @@ const getweather = (cityname, lat, lon) => {
         });
 };
 
-// Getting city coordinates
+
 const getcoordinates = () => {
     const cityname = cityinput.value.trim();
     if (!cityname) return;
 
-    const GEOCODING_API_URL = `http://api.openweathermap.org/geo/1.0/direct?q=${cityname}&limit=1&appid=${API_KEY}`;
+    const GEOCODING_API_URL = `https://api.openweathermap.org/geo/1.0/direct?q=${cityname}&limit=1&appid=${API_KEY}`;
 
     fetch(GEOCODING_API_URL)
         .then(res => res.json())
@@ -99,34 +90,29 @@ const getcoordinates = () => {
             alert("Error occurred while fetching the coordinates");
         });
 };
-const getusercoordinates=()=>{
+
+const getusercoordinates = () => {
     navigator.geolocation.getCurrentPosition(
-        position=>{
-            const{latitude,longitude}=position.coords;
-            const REVERSE_GEOCODING_URL=`http://api.openweathermap.org/geo/1.0/reverse?lat=${latitude}&lon=${longitude}&limit=1&appid=${API_KEY}`;
+        position => {
+            const { latitude, longitude } = position.coords;
+            const REVERSE_GEOCODING_URL = `https://api.openweathermap.org/geo/1.0/reverse?lat=${latitude}&lon=${longitude}&limit=1&appid=${API_KEY}`;
             fetch(REVERSE_GEOCODING_URL)
-        .then(res => res.json())
-        .then(data => {
-          //console.log(data);   
-          const { name } = data[0];
-            getweather(name, latitude, longitude);  
-   
-
-        })
-        .catch(() => {
-            alert("Error occurred while fetching the city");
-        });
-
-
-
+                .then(res => res.json())
+                .then(data => {
+                    const { name } = data[0];
+                    getweather(name, latitude, longitude);
+                })
+                .catch(() => {
+                    alert("Error occurred while fetching the city");
+                });
         },
-        error=>{
-            if(error.code===error.PERMISSION_DENIED){
-                alert("Location request denied")
+        error => {
+            if (error.code === error.PERMISSION_DENIED) {
+                alert("Location request denied");
             }
         }
     );
-}
+};
 
 searchbtn.addEventListener("click", getcoordinates);
-locationbtn.addEventListener("click",getusercoordinates);
+locationbtn.addEventListener("click", getusercoordinates);
