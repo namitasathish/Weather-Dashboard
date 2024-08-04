@@ -34,6 +34,7 @@ body{
     background-color: transparent;
     border:3px solid #c7ccdb;
     font-family: inherit;
+    color:white;
     
 }
 .search:hover{
