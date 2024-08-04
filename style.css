@@ -1,4 +1,5 @@
 
+
 body{
     width:100%;
     height:100vh;
@@ -8,7 +9,7 @@ body{
     justify-content: center;
     /*background: linear-gradient(to right, #6a11cb, #2575fc);*/
     animation: gradientMove 15s infinite;
-    background: linear-gradient(270deg,#101010, #090909);
+    background-color: #273469;
     background-size: 600% 600%;
     color: white;
     font-family: "Titillium Web", sans-serif;
@@ -20,23 +21,24 @@ body{
     100% { background-position: 0% 50%; }
 }
 .searchbar{
-    margin-left: 60px;
+    margin-left: 10px;
+    margin-right: 40px;
     gap: 10px;
     display: flex;
     
 }
 .search{
-    width:700px;
-    height:45px;
+    width:850px;
+    height:40px;
     border-radius: 15px;
     background-color: transparent;
-    border:3px solid white;
+    border:3px solid #c7ccdb;
     font-family: inherit;
-    color:white;
+    
 }
 .search:hover{
-    width:700px;
-    height:45px;
+    width:850px;
+    height:40px;
     border-radius: 15px;
     background-color: transparent;
     
@@ -48,12 +50,12 @@ body{
 .search::placeholder {
     text-align: center;
     font-size: large;
-    color: #fffefe;
+    color: #c7ccdb;
 }
 .citydetails{
-    width: 700px;
+    width: 710px;
     height: 300px;
-    border: 2px solid transparent;
+   margin-left: 50px;
     border-radius: 15px;
     margin-top: 50px;
     margin-left: 90px;
@@ -63,7 +65,7 @@ body{
    display: flex;
    flex-direction: column;
    position: relative;
- 
+  margin-right: 20px;
     animation: borderAnimation 5s linear infinite;
 }
 
@@ -76,22 +78,22 @@ body{
     left: -7px;
     z-index: -1;
     
-    border: 1px solid;
-    border-image: linear-gradient(360deg, cyan, cyan) 1;
+    border: 5px solid;
+    border-image: linear-gradient(360deg, #f79824, #f7ca4e) 2;
     animation: borderAnimation 5s linear infinite;
     border-radius: inherit;
 }
 @keyframes borderAnimation {
     0% {
-        border-image: linear-gradient(45deg, cyan, rgb(0, 60, 255)) 1;
+        border-image: linear-gradient(45deg, #f79824, #f7ca4e) 2;
        
     }
     50% {
-        border-image: linear-gradient(180deg, cyan, rgb(0, 60, 255)) 1;
+        border-image: linear-gradient(180deg, #f79824, #f7ca4e) 2;
      
     }
     100% {
-        border-image: linear-gradient(270deg, cyan, rgb(0, 60, 255)) 1;
+        border-image: linear-gradient(270deg, #f79824, #f7ca4e) 2;
         
     }
 }
@@ -142,12 +144,12 @@ body{
     
     width: 1000px;
     height: auto;
-    border: 5px solid white;
+    border: 1.5px solid #c7ccdb;
     border-radius: 15px;
     margin-top: 50px;
     padding: 15px;
     font-family: inherit;
-    
+    margin-right: 40px;  
 
 }
 .weathercards {
@@ -167,7 +169,7 @@ h2{
 }
 
 .card {
-    width: 125px;
+    width: 140px;
     padding: 10px;
     border: 1px solid transparent;
     border-radius: 10px;
@@ -175,6 +177,7 @@ h2{
     text-align: center;
     font-family: inherit;
     position: relative; 
+    margin-bottom:40px;
 
    
 }
@@ -188,7 +191,7 @@ h2{
     left: -4px; 
     z-index: -1;
     border-radius: inherit;
-    border: 1px solid;
+    border: 5px solid;
     border-image: linear-gradient(45deg, cyan, aqua) 1;
     animation: borderAnimation 5s linear infinite;
 }
@@ -201,7 +204,9 @@ h2{
     cursor: pointer;
     background-position: center;
     text-align: center;
-    background-color:#090909;
+    border: transparent;
+    background-color: transparent;
+    
     
 }
 .locationbtn{
@@ -212,7 +217,10 @@ h2{
     cursor: pointer;
     background-position: center;
     text-align: center;
-    background-color:#090909;
+    border: transparent;
+    background-color: transparent;
+ 
+   
     
 }
 .iconbtn{
@@ -220,11 +228,12 @@ h2{
     background-size: cover;
     width:50px;
     height:50px;
-    cursor: pointer;
+
     background-position: center;
     text-align: center;
     border: transparent;
     background-color: transparent;
+    
     
 }
 h3{
@@ -243,5 +252,6 @@ h4{
     font-weight: bold;
     float: bottom ;
     text-align: center;
+    margin-left:30px;
 
 }
