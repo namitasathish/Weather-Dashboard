@@ -32,6 +32,7 @@ body{
     background-color: transparent;
     border:3px solid white;
     font-family: inherit;
+    color:white;
 }
 .search:hover{
     width:700px;
